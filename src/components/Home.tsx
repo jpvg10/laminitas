@@ -44,10 +44,10 @@ const Home: React.FC = () => {
   ));
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="px-2 flex flex-col items-center">
       <p className="text-3xl text-gray-700 font-bold mb-5">Laminitas</p>
       <p className="text-gray-500 text-lg mb-5">Qatar 2022 Panini Album</p>
-      <div className="">{stickerButtons}</div>
+      <div className="flex justify-center flex-wrap">{stickerButtons}</div>
     </div>
   );
 };

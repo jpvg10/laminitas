@@ -21,7 +21,7 @@ const Sticker: React.FC<IProps> = ({ num, status, increment }) => {
 
   return (
     <button
-      className={`${bgColor} shadow-md rounded-full text-white py-2 px-4 mr-4 mb-4 min-w-[60px]`}
+      className={`${bgColor} shadow-md rounded-full text-white py-2 m-2 min-w-[60px]`}
       onClick={increment}
     >
       {num}
