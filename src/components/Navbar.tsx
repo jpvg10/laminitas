@@ -7,6 +7,9 @@ const Navbar: React.FC = () => (
       <li className="mr-5">
         <Link to="/">Home</Link>
       </li>
+      <li className="mr-5">
+        <Link to="/exchange">Exchange</Link>
+      </li>
       <li>
         <Link to="/about">About</Link>
       </li>

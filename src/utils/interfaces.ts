@@ -1,6 +1,6 @@
-import { StickerStatus } from './enums';
+import { EStickerStatus } from './enums';
 
 export interface ISticker {
   num: number;
-  status: StickerStatus;
+  status: EStickerStatus;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LOCAL_STORAGE_STATE, TOTAL_STICKERS } from '../utils/constants';
-import { StickerStatus } from '../utils/enums';
+import { EStickerStatus } from '../utils/enums';
 import { ISticker } from '../utils/interfaces';
 import Sticker from './Sticker';
 
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     } else {
       const array: ISticker[] = [];
       for (let i = 0; i <= TOTAL_STICKERS; i++) {
-        array.push({ num: i, status: StickerStatus.DONT_HAVE_IT });
+        array.push({ num: i, status: EStickerStatus.DONT_HAVE_IT });
       }
       setStickers(array);
       localStorage.setItem(LOCAL_STORAGE_STATE, JSON.stringify(array));
@@ -44,11 +44,10 @@ const Home: React.FC = () => {
   ));
 
   return (
-    <div className="px-2 flex flex-col items-center">
-      <p className="text-3xl text-gray-700 font-bold mb-5">Laminitas</p>
-      <p className="text-gray-500 text-lg mb-5">Qatar 2022 Panini Album</p>
+    <React.Fragment>
+      <h2 className="text-gray-500 text-lg mb-5">Qatar 2022 Panini Album</h2>
       <div className="flex justify-center flex-wrap">{stickerButtons}</div>
-    </div>
+    </React.Fragment>
   );
 };
 

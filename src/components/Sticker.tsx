@@ -1,5 +1,5 @@
 import React from 'react';
-import { StickerStatus } from '../utils/enums';
+import { EStickerStatus } from '../utils/enums';
 import { ISticker } from '../utils/interfaces';
 
 interface IProps extends ISticker {
@@ -9,10 +9,10 @@ interface IProps extends ISticker {
 const Sticker: React.FC<IProps> = ({ num, status, increment }) => {
   let bgColor: string;
   switch (status) {
-    case StickerStatus.HAVE_IT:
+    case EStickerStatus.HAVE_IT:
       bgColor = 'bg-lime-500 hover:bg-lime-600';
       break;
-    case StickerStatus.REPEATED:
+    case EStickerStatus.REPEATED:
       bgColor = 'bg-amber-500 hover:bg-amber-600';
       break;
     default:
