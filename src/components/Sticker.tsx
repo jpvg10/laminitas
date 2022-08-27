@@ -1,18 +1,18 @@
 import React from 'react';
-import { EStickerStatus } from '../utils/enums';
+import { EStickerQuantity } from '../utils/enums';
 import { ISticker } from '../utils/interfaces';
 
 interface IProps extends ISticker {
   increment: () => void;
 }
 
-const Sticker: React.FC<IProps> = ({ num, status, increment }) => {
+const Sticker: React.FC<IProps> = ({ num, quantity: status, increment }) => {
   let bgColor: string;
   switch (status) {
-    case EStickerStatus.HAVE_IT:
+    case EStickerQuantity.HAVE_IT:
       bgColor = 'bg-lime-500 hover:bg-lime-600';
       break;
-    case EStickerStatus.REPEATED:
+    case EStickerQuantity.REPEATED:
       bgColor = 'bg-amber-500 hover:bg-amber-600';
       break;
     default:

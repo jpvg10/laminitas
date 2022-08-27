@@ -10,7 +10,7 @@ const Exchange: React.FC = () => {
     const stickerState = localStorage.getItem(LOCAL_STORAGE_STATE);
     const stickers: ISticker[] = JSON.parse(stickerState!);
     const value = stickers.reduce((acc: string, curr: ISticker) => {
-      return acc + curr.status;
+      return acc + curr.quantity;
     }, '');
     console.log(value);
     setQRValue(value);

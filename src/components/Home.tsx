@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LOCAL_STORAGE_STATE, TOTAL_STICKERS } from '../utils/constants';
-import { EStickerStatus } from '../utils/enums';
+import { EStickerQuantity } from '../utils/enums';
 import { ISticker } from '../utils/interfaces';
 import Sticker from './Sticker';
 
@@ -13,8 +13,8 @@ const Home: React.FC = () => {
       setStickers(JSON.parse(stickerState));
     } else {
       const array: ISticker[] = [];
-      for (let i = 0; i <= TOTAL_STICKERS; i++) {
-        array.push({ num: i, status: EStickerStatus.DONT_HAVE_IT });
+      for (let i = 0; i < TOTAL_STICKERS; i++) {
+        array.push({ num: i, quantity: EStickerQuantity.DONT_HAVE_IT });
       }
       setStickers(array);
       localStorage.setItem(LOCAL_STORAGE_STATE, JSON.stringify(array));
@@ -24,8 +24,8 @@ const Home: React.FC = () => {
   const incrementSticker = (num: number) => () => {
     const newStickers: ISticker[] = stickers.map((s) => {
       if (s.num === num) {
-        const newStatus = (s.status + 1) % 3;
-        return { ...s, status: newStatus };
+        const newQuantity = (s.quantity + 1) % 3;
+        return { ...s, quantity: newQuantity };
       } else {
         return s;
       }
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
     <Sticker
       key={sticker.num}
       num={sticker.num}
-      status={sticker.status}
+      quantity={sticker.quantity}
       increment={incrementSticker(sticker.num)}
     />
   ));
