@@ -1,52 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { LOCAL_STORAGE_STATE, TOTAL_STICKERS } from '../utils/constants';
-import { EStickerQuantity } from '../utils/enums';
-import { ISticker } from '../utils/interfaces';
-import Sticker from './Sticker';
+import React, { useContext } from 'react';
+import AppContext from '../context/context';
+import StickerButtons from './StickerButtons';
 
 const Home: React.FC = () => {
-  const [stickers, setStickers] = useState<ISticker[]>([]);
-
-  useEffect(() => {
-    const stickerState = localStorage.getItem(LOCAL_STORAGE_STATE);
-    if (stickerState) {
-      setStickers(JSON.parse(stickerState));
-    } else {
-      const array: ISticker[] = [];
-      for (let i = 0; i < TOTAL_STICKERS; i++) {
-        array.push({ num: i, quantity: EStickerQuantity.DONT_HAVE_IT });
-      }
-      setStickers(array);
-      localStorage.setItem(LOCAL_STORAGE_STATE, JSON.stringify(array));
-    }
-  }, []);
-
-  const incrementSticker = (num: number) => () => {
-    const newStickers: ISticker[] = stickers.map((s) => {
-      if (s.num === num) {
-        const newQuantity = (s.quantity + 1) % 3;
-        return { ...s, quantity: newQuantity };
-      } else {
-        return s;
-      }
-    });
-    setStickers(newStickers);
-    localStorage.setItem(LOCAL_STORAGE_STATE, JSON.stringify(newStickers));
-  };
-
-  const stickerButtons = stickers.map((sticker: ISticker) => (
-    <Sticker
-      key={sticker.num}
-      num={sticker.num}
-      quantity={sticker.quantity}
-      increment={incrementSticker(sticker.num)}
-    />
-  ));
-
+  const { stickers, incrementSticker } = useContext(AppContext);
   return (
     <React.Fragment>
       <h2 className="text-gray-500 text-lg mb-5">Qatar 2022 Panini Album</h2>
-      <div className="flex justify-center flex-wrap">{stickerButtons}</div>
+      <StickerButtons stickers={stickers} incrementSticker={incrementSticker} />
     </React.Fragment>
   );
 };
