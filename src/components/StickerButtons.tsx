@@ -1,17 +1,19 @@
 import React from 'react';
-import { IAppContext, ISticker } from '../utils/interfaces';
+import { ISticker } from '../utils/interfaces';
 import Sticker from './Sticker';
 
-const StickerButtons: React.FC<IAppContext> = ({
-  stickers,
-  incrementSticker,
-}) => {
+interface IProps {
+  stickers: ISticker[];
+  onClick: (num: number) => () => any;
+}
+
+const StickerButtons: React.FC<IProps> = ({ stickers, onClick }) => {
   const stickerButtons = stickers.map((sticker: ISticker) => (
     <Sticker
       key={sticker.num}
       num={sticker.num}
       quantity={sticker.quantity}
-      increment={incrementSticker(sticker.num)}
+      onClick={onClick(sticker.num)}
     />
   ));
 

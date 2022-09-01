@@ -3,12 +3,12 @@ import { EStickerQuantity } from '../utils/enums';
 import { ISticker } from '../utils/interfaces';
 
 interface IProps extends ISticker {
-  increment: () => void;
+  onClick: () => void;
 }
 
-const Sticker: React.FC<IProps> = ({ num, quantity: status, increment }) => {
+const Sticker: React.FC<IProps> = ({ num, quantity, onClick }) => {
   let bgColor: string;
-  switch (status) {
+  switch (quantity) {
     case EStickerQuantity.HAVE_IT:
       bgColor = 'bg-lime-500 hover:bg-lime-600';
       break;
@@ -22,7 +22,7 @@ const Sticker: React.FC<IProps> = ({ num, quantity: status, increment }) => {
   return (
     <button
       className={`${bgColor} shadow-md rounded-full text-white py-2 m-2 min-w-[60px]`}
-      onClick={increment}
+      onClick={onClick}
     >
       {num}
     </button>

@@ -1,10 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { encode } from '../utils/encoder';
-import AppContext from '../context/context';
+import { ISticker } from '../utils/interfaces';
 
-const MyQR: React.FC = () => {
-  const { stickers } = useContext(AppContext);
+interface IProps {
+  stickers: ISticker[];
+}
+
+const MyQR: React.FC<IProps> = ({ stickers }) => {
   const [QRValue, setQRValue] = useState('');
 
   useEffect(() => {

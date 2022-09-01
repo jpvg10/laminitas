@@ -5,7 +5,7 @@ export interface ISticker {
   quantity: EStickerQuantity;
 }
 
-export interface IAppContext {
+export interface IStickerState {
   stickers: ISticker[];
-  incrementSticker: (num: number) => () => void;
+  setStickers: (stickers: ISticker[]) => void;
 }
