@@ -19,7 +19,7 @@ const Home: React.FC<IStickerState> = ({ stickers, setStickers }) => {
 
   return (
     <React.Fragment>
-      <h2 className="text-gray-500 text-lg mb-5">Qatar 2022 Panini Album</h2>
+      <h2 className="text-gray-500 text-lg mb-5">Sticker Album</h2>
       <StickerButtons stickers={stickers} onClick={incrementSticker} />
     </React.Fragment>
   );
