@@ -1,4 +1,3 @@
-import { TOTAL_STICKERS } from './constants';
 import { EStickerQuantity } from './enums';
 import { ISticker } from './interfaces';
 
@@ -40,7 +39,7 @@ export const encode = (state: ISticker[]): string => {
 
 export const decode = (
   stringState: string,
-  maxStickers = TOTAL_STICKERS
+  maxStickers: number
 ): ISticker[] => {
   const numbers = stringState.split(',');
   const state: ISticker[] = [];

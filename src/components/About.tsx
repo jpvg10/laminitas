@@ -1,5 +1,13 @@
 import React from 'react';
 
-const About: React.FC = () => <h1>This is a PWA</h1>;
+interface IProps {
+  reset: () => void;
+}
+
+const About: React.FC<IProps> = ({ reset }) => (
+  <React.Fragment>
+    <button onClick={reset}>Reset</button>
+  </React.Fragment>
+);
 
 export default About;

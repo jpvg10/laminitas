@@ -21,8 +21,9 @@ describe('Encoder', () => {
   });
 
   it('decodes all zeros', () => {
-    const status = generate(60);
-    const decodedStatus = decode('0,0,0,0');
+    const n = 60;
+    const status = generate(n);
+    const decodedStatus = decode('0,0,0,0', n);
     expect(decodedStatus).toEqual(status);
   });
 
@@ -33,16 +34,18 @@ describe('Encoder', () => {
   });
 
   it('decode handles padding', () => {
-    const status = generate(40);
-    const decodedStatus = decode('0,0,0', 40);
+    const n = 40;
+    const status = generate(n);
+    const decodedStatus = decode('0,0,0', n);
     expect(decodedStatus).toEqual(status);
   });
 
   xit('randomized test', () => {
-    const status = generate(600, true);
+    const n = 600;
+    const status = generate(n, true);
     const encondedStatus = encode(status);
     console.log(encondedStatus);
-    const decodedStatus = decode(encondedStatus);
+    const decodedStatus = decode(encondedStatus, n);
     expect(decodedStatus).toEqual(status);
   });
 });

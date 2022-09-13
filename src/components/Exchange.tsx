@@ -6,9 +6,14 @@ import { EStickerQuantity } from '../utils/enums';
 import StickerButtons from './StickerButtons';
 import { useNavigate } from 'react-router-dom';
 
-const Exchange: React.FC<IStickerState> = ({
+interface IProps extends IStickerState {
+  totalStickers: number;
+}
+
+const Exchange: React.FC<IProps> = ({
   stickers: globalStickers,
   setStickers: globalSetStickers,
+  totalStickers,
 }) => {
   const { search } = useLocation();
   const navigate = useNavigate();
@@ -21,9 +26,9 @@ const Exchange: React.FC<IStickerState> = ({
 
     // search === '?q=[queryState]'
     const queryState = search.substring(3);
-    const newState = decode(queryState);
+    const newState = decode(queryState, totalStickers);
     setIncomingState(newState);
-  }, [search, navigate]);
+  }, [search, navigate, totalStickers]);
 
   // Freeze the value
   const [frozenGlobalState, setGlobalState] = useState<ISticker[]>([]);
