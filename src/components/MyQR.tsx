@@ -13,7 +13,7 @@ const MyQR: React.FC<IProps> = ({ stickers }) => {
   useEffect(() => {
     const value = encode(stickers);
     console.log(value);
-    setQRValue(value);
+    setQRValue(`${window.location.origin}/exchange?q=${value}`);
   }, [stickers]);
 
   return (
