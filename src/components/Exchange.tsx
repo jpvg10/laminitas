@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ISticker, IStickerState } from '../utils/interfaces';
 import { decode } from '../utils/encoder';
 import { useLocation } from 'react-router-dom';
 import { EStickerQuantity } from '../utils/enums';
 import StickerButtons from './StickerButtons';
-import { useNavigate } from 'react-router-dom';
 
 interface IProps extends IStickerState {
   totalStickers: number;
