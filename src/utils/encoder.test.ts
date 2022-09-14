@@ -8,7 +8,7 @@ const generate = (n: number, random?: boolean): ISticker[] => {
     const quantity = random
       ? Math.floor(Math.random() * 3)
       : EStickerQuantity.DONT_HAVE_IT;
-    status.push({ num: i, quantity });
+    status.push({ num: i + 1, quantity });
   }
   return status;
 };

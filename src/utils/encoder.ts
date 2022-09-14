@@ -54,11 +54,11 @@ export const decode = (
     for (let j = 0; j < binary.length - 1; j += 2) {
       const fragment = binary.substring(j, j + 2);
       if (fragment === '00') {
-        state.push({ num: i, quantity: EStickerQuantity.DONT_HAVE_IT });
+        state.push({ num: i + 1, quantity: EStickerQuantity.DONT_HAVE_IT });
       } else if (fragment === '01') {
-        state.push({ num: i, quantity: EStickerQuantity.HAVE_IT });
+        state.push({ num: i + 1, quantity: EStickerQuantity.HAVE_IT });
       } else {
-        state.push({ num: i, quantity: EStickerQuantity.REPEATED });
+        state.push({ num: i + 1, quantity: EStickerQuantity.REPEATED });
       }
       i++;
     }

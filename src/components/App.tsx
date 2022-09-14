@@ -15,7 +15,6 @@ import Navbar from './Navbar';
 
 const App: React.FC = () => {
   const [stickers, setStickers] = useState<ISticker[]>([]);
-  const [totalStickers, setTotalStickers] = useState(0);
   const [configured, setConfigured] = useState(false);
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const App: React.FC = () => {
   }, []);
 
   const configure = (n: number) => {
-    setTotalStickers(n);
     setConfigured(true);
 
     const array: ISticker[] = [];
@@ -46,7 +44,6 @@ const App: React.FC = () => {
       "Are you sure you want to reset your progress? You can't undo this action."
     );
     if (confirmation) {
-      setTotalStickers(0);
       setConfigured(false);
       setStickers([]);
       localStorage.removeItem(LOCAL_STORAGE_STATE);
@@ -65,11 +62,7 @@ const App: React.FC = () => {
             <Route
               path="/exchange"
               element={
-                <Exchange
-                  stickers={stickers}
-                  setStickers={setStickers}
-                  totalStickers={totalStickers}
-                />
+                <Exchange stickers={stickers} setStickers={setStickers} />
               }
             />
             <Route path="/my-qr" element={<MyQR stickers={stickers} />} />

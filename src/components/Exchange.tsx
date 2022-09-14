@@ -6,18 +6,14 @@ import { useLocation } from 'react-router-dom';
 import { EStickerQuantity } from '../utils/enums';
 import StickerButtons from './StickerButtons';
 
-interface IProps extends IStickerState {
-  totalStickers: number;
-}
-
-const Exchange: React.FC<IProps> = ({
+const Exchange: React.FC<IStickerState> = ({
   stickers: globalStickers,
   setStickers: globalSetStickers,
-  totalStickers,
 }) => {
   const { search } = useLocation();
   const navigate = useNavigate();
   const [incomingState, setIncomingState] = useState<ISticker[]>([]);
+  const totalStickers = globalStickers.length;
 
   useEffect(() => {
     if (!search) {
@@ -27,6 +23,7 @@ const Exchange: React.FC<IProps> = ({
     // search === '?q=[queryState]'
     const queryState = search.substring(3);
     const newState = decode(queryState, totalStickers);
+    console.log(newState);
     setIncomingState(newState);
   }, [search, navigate, totalStickers]);
 
