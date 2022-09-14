@@ -17,10 +17,21 @@ const About: React.FC<IProps> = ({ reset }) => {
     <React.Fragment>
       <button
         onClick={onClickReset}
-        className="bg-red-600 hover:bg-red-700 rounded shadow-md text-white px-6 py-2 m-2"
+        className="bg-red-600 hover:bg-red-700 rounded shadow-md text-white px-6 py-2 mb-5"
       >
-        Reset
+        Reset progress
       </button>
+      <p>Juan Pablo Valencia, 2022</p>
+      <p>
+        Check the code on{' '}
+        <a
+          href="https://www.github.com/jpvg10/laminitas"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
+      </p>
     </React.Fragment>
   );
 };

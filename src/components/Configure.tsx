@@ -24,11 +24,11 @@ const Configure: React.FC<IProps> = ({ configure }) => {
           type="number"
           min={0}
           onChange={onChange}
-          className="border appearance-none px-2 py-1"
+          className="border appearance-none px-2 py-1 mr-2"
         />
         <button
           type="submit"
-          className="bg-lime-600 hover:bg-lime-700 rounded shadow-md text-white px-2 py-1 m-2"
+          className="bg-lime-600 hover:bg-lime-700 rounded shadow-md text-white px-2 py-1"
         >
           Submit
         </button>
