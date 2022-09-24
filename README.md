@@ -2,6 +2,8 @@
 
 Keep track of your sticker album progress and easily exchange stickers with other people!
 
+Try it out at: [https://laminitas.vercel.app/](https://laminitas.vercel.app/)
+
 ## Premise
 
 When completing a sticker album, you usually exchange repeated stickers with a lot of people. The process goes something like this:
