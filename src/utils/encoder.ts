@@ -41,6 +41,10 @@ export const decode = (
   stringState: string,
   maxStickers: number
 ): ISticker[] => {
+  if (!stringState) {
+    return [];
+  }
+
   const numbers = stringState.split(',');
   const state: ISticker[] = [];
   let i = 0;

@@ -40,6 +40,11 @@ describe('Encoder', () => {
     expect(decodedStatus).toEqual(status);
   });
 
+  it('decode handles empty string', () => {
+    const decodedStatus = decode('', 30);
+    expect(decodedStatus).toEqual([]);
+  });
+
   xit('randomized test', () => {
     const n = 600;
     const status = generate(n, true);
