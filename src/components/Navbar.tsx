@@ -8,11 +8,8 @@ const Navbar: React.FC = () => (
         <Link to="/">Home</Link>
       </li>
       <li className="mr-5">
-        <Link to="/my-qr">My QR</Link>
-      </li>
-      {/* <li className="mr-5">
         <Link to="/exchange">Exchange</Link>
-      </li> */}
+      </li>
       <li>
         <Link to="/about">About</Link>
       </li>

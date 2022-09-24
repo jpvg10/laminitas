@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ISticker, IStickerState } from '../utils/interfaces';
 import { decode } from '../utils/encoder';
 import { useLocation } from 'react-router-dom';
 import { EStickerQuantity } from '../utils/enums';
 import StickerButtons from './StickerButtons';
+import MyQR from './MyQR';
 
 const Exchange: React.FC<IStickerState> = ({
   stickers: globalStickers,
   setStickers: globalSetStickers,
 }) => {
   const { search } = useLocation();
-  const navigate = useNavigate();
   const [incomingState, setIncomingState] = useState<ISticker[]>([]);
+  const [showExchange, setShowExchange] = useState(false);
   const totalStickers = globalStickers.length;
 
   useEffect(() => {
-    if (!search) {
-      navigate('/');
-    }
-
     // search === '?q=[queryState]'
+    if (search) {
+      setShowExchange(true);
+    }
     const queryState = search.substring(3);
     const newState = decode(queryState, totalStickers);
     console.log(newState);
     setIncomingState(newState);
-  }, [search, navigate, totalStickers]);
+  }, [search, totalStickers]);
 
   // Freeze the value
   const [frozenGlobalState, setGlobalState] = useState<ISticker[]>([]);
@@ -94,11 +93,17 @@ const Exchange: React.FC<IStickerState> = ({
 
   return (
     <React.Fragment>
-      <h2 className="text-gray-500 text-lg mb-5">Exchange stickers</h2>
-      <p>I take:</p>
-      <StickerButtons stickers={iTake} onClick={onClickITake} />
-      <p>My friend takes:</p>
-      <StickerButtons stickers={friendTakes} onClick={onClickFriendTakes} />
+      <MyQR stickers={globalStickers} />
+
+      {showExchange && (
+        <React.Fragment>
+          <h2 className="text-gray-500 text-lg mb-5 mt-5">Exchange stickers</h2>
+          <p>I take:</p>
+          <StickerButtons stickers={iTake} onClick={onClickITake} />
+          <p>My friend takes:</p>
+          <StickerButtons stickers={friendTakes} onClick={onClickFriendTakes} />
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 };

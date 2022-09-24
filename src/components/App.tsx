@@ -10,7 +10,6 @@ import About from './About';
 import Configure from './Configure';
 import Exchange from './Exchange';
 import Home from './Home';
-import MyQR from './MyQR';
 import Navbar from './Navbar';
 
 const App: React.FC = () => {
@@ -65,7 +64,6 @@ const App: React.FC = () => {
                 <Exchange stickers={stickers} setStickers={setStickers} />
               }
             />
-            <Route path="/my-qr" element={<MyQR stickers={stickers} />} />
             <Route
               path="/"
               element={
