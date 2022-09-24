@@ -25,6 +25,7 @@ const About: React.FC<IProps> = ({ reset }) => {
       <p>
         Check the code on{' '}
         <a
+          className="text-blue-600 hover:text-blue-700"
           href="https://www.github.com/jpvg10/laminitas"
           target="_blank"
           rel="noreferrer"
