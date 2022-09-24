@@ -38,6 +38,16 @@ const About: React.FC<IProps> = ({ reset }) => {
           GitHub
         </a>
       </p>
+      <p>
+        <a
+          className="text-blue-600 hover:text-blue-700"
+          href="https://www.flaticon.com/free-icons/sticker"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Sticker icons created by Freepik - Flaticon
+        </a>
+      </p>
     </React.Fragment>
   );
 };
