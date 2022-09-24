@@ -39,15 +39,10 @@ const App: React.FC = () => {
   };
 
   const reset = () => {
-    const confirmation = window.confirm(
-      "Are you sure you want to reset your progress? You can't undo this action."
-    );
-    if (confirmation) {
-      setConfigured(false);
-      setStickers([]);
-      localStorage.removeItem(LOCAL_STORAGE_STATE);
-      localStorage.removeItem(LOCAL_STORAGE_CONFIGURED);
-    }
+    setConfigured(false);
+    setStickers([]);
+    localStorage.removeItem(LOCAL_STORAGE_STATE);
+    localStorage.removeItem(LOCAL_STORAGE_CONFIGURED);
   };
 
   return (

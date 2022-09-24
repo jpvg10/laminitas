@@ -9,8 +9,13 @@ const About: React.FC<IProps> = ({ reset }) => {
   const navigate = useNavigate();
 
   const onClickReset = () => {
-    reset();
-    navigate('/');
+    const confirmation = window.confirm(
+      "Are you sure you want to reset your progress? You can't undo this action."
+    );
+    if (confirmation) {
+      reset();
+      navigate('/');
+    }
   };
 
   return (
